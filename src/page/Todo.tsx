@@ -1,13 +1,11 @@
-import Todocard from "@/components/todo/Todocard";
+import TodoContainer from "@/components/todo/Todocontainer";
 
 const Todo = () => {
     return (
-        <div className="bg-cyan-500 h-screen w-full p-5 ">
-           <h1 className="text-white font-bold text-center uppercase mb-3">todo page</h1> 
-           <Todocard></Todocard>
-           <Todocard></Todocard>
-           <Todocard></Todocard>
-           <Todocard></Todocard>
+        <div className="container">
+            <h1 className=" font-bold text-center uppercase pt-10">todo page</h1>
+
+            <TodoContainer></TodoContainer>
         </div>
     );
 };

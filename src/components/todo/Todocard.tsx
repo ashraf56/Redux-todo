@@ -4,7 +4,7 @@ import { Card } from "../ui/card";
 const Todocard = () => {
     return (
         <div className="my-3">
-            <Card className="w-full max-w-5xl flex justify-between items-center mx-auto px-10">
+            <Card className=" max-w-7xl h-14 flex justify-between items-center mx-auto px-10">
                 <input type="checkbox" value="" />
                 <p>Title</p>
                 <p>time</p>
