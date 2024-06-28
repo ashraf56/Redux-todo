@@ -1,12 +1,12 @@
-import { Button } from "./components/ui/button"
+import Todo from "./page/Todo"
 
 
 function App() {
 
   return (
-    <>
-      <Button>My Bytton</Button>
-    </>
+    <div className="w-full container">
+     <Todo></Todo>
+    </div>
   )
 }
 
