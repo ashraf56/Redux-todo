@@ -4,7 +4,7 @@ import Todo from "./page/Todo"
 function App() {
 
   return (
-    <div className="w-full container">
+    <div className="container ">
      <Todo></Todo>
     </div>
   )
