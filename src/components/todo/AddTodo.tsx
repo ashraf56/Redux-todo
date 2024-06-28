@@ -1,58 +1,68 @@
 import { Button } from "@/components/ui/button"
 import {
-  Dialog,
-  DialogContent,
-  DialogDescription,
-  DialogFooter,
-  DialogHeader,
-  DialogTitle,
-  DialogTrigger,
+    Dialog,
+    DialogContent,
+    DialogDescription,
+    DialogFooter,
+    DialogHeader,
+    DialogTitle,
+    DialogTrigger,
 } from "@/components/ui/dialog"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
+import { FormEvent, useState } from "react";
 
 const AddTodo = () => {
+    const [task, settask] = useState('')
+    const [description, setdescription] = useState('')
+
+    const handleSUbmit = (e: FormEvent) => {
+        e.preventDefault()
+
+        console.log({ task, description });
+
+
+    }
     return (
         <div>
-           
-    <Dialog>
-      <DialogTrigger asChild>
-        <Button variant="outline">Edit Profile</Button>
-      </DialogTrigger>
-      <DialogContent className="sm:max-w-[425px]">
-        <DialogHeader>
-          <DialogTitle>Edit profile</DialogTitle>
-          <DialogDescription>
-            Make changes to your profile here. Click save when you're done.
-          </DialogDescription>
-        </DialogHeader>
-        <div className="grid gap-4 py-4">
-          <div className="grid grid-cols-4 items-center gap-4">
-            <Label htmlFor="name" className="text-right">
-              Name
-            </Label>
-            <Input
-              id="name"
-              defaultValue="Pedro Duarte"
-              className="col-span-3"
-            />
-          </div>
-          <div className="grid grid-cols-4 items-center gap-4">
-            <Label htmlFor="username" className="text-right">
-              Username
-            </Label>
-            <Input
-              id="username"
-              defaultValue="@peduarte"
-              className="col-span-3"
-            />
-          </div>
-        </div>
-        <DialogFooter>
-          <Button type="submit">Save changes</Button>
-        </DialogFooter>
-      </DialogContent>
-    </Dialog>
+
+            <Dialog>
+                <DialogTrigger asChild>
+                    <Button variant="outline">Add TODO</Button>
+                </DialogTrigger>
+                <DialogContent className="sm:max-w-[425px]">
+                    <DialogHeader>
+                        <DialogTitle>Add a Task</DialogTitle>
+                        <DialogDescription>
+                            Make  your task here. Click save when you're done.
+                        </DialogDescription>
+                    </DialogHeader>
+                    <form onSubmit={handleSUbmit} className="grid gap-4 py-4">
+                        <div className="grid grid-cols-4 items-center gap-4">
+                            <Label htmlFor="name" className="text-right">
+                                Name
+                            </Label>
+                            <Input
+                                onBlur={(e) => settask(e.target.value)}
+                                className="col-span-3"
+                            />
+                        </div>
+                        <div className="grid grid-cols-4 items-center gap-4">
+                            <Label htmlFor="username" className="text-right">
+                                Username
+                            </Label>
+                            <Input
+                                onBlur={(e) => setdescription(e.target.value)}
+                                className="col-span-3"
+                            />
+                        </div>
+
+                        <DialogFooter>
+                            <Button type="submit">Save changes</Button>
+                        </DialogFooter>
+                    </form>
+                </DialogContent>
+            </Dialog>
 
 
 
