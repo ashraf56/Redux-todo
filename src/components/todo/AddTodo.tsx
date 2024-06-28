@@ -10,16 +10,23 @@ import {
 } from "@/components/ui/dialog"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
+import { addtodo } from "@/redux/features/todoslice";
+import { useAppDispatch } from "@/redux/hook";
 import { FormEvent, useState } from "react";
 
 const AddTodo = () => {
     const [task, settask] = useState('')
     const [description, setdescription] = useState('')
-
+    const dispatch = useAppDispatch()
     const handleSUbmit = (e: FormEvent) => {
         e.preventDefault()
 
-        console.log({ task, description });
+        const tasDetail = {
+            title: task,
+            description: description
+        }
+        dispatch(addtodo(tasDetail))
+
 
 
     }
@@ -49,7 +56,7 @@ const AddTodo = () => {
                         </div>
                         <div className="grid grid-cols-4 items-center gap-4">
                             <Label htmlFor="username" className="text-right">
-                                Username
+                                description
                             </Label>
                             <Input
                                 onBlur={(e) => setdescription(e.target.value)}

@@ -1,14 +1,13 @@
-import { configureStore } from "@reduxjs/toolkit";
+import { configureStore } from "@reduxjs/toolkit"
+import todoslice from "./features/todoslice"
 
 
 
 export const store = configureStore({
     reducer:{
-        
+        todos: todoslice
     }
-})
-
-
+}) 
 
 
 // Infer the `RootState` and `AppDispatch` types from the store itself
