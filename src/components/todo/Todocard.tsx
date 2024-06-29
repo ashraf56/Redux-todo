@@ -1,5 +1,7 @@
+import { useAppDispatch } from "@/redux/hook";
 import { Button } from "../ui/button";
 import { Card } from "../ui/card";
+import { removeTodo } from "@/redux/features/todoslice";
 
 type TodoProps={
     id:string
@@ -8,7 +10,7 @@ type TodoProps={
 
 }
 const Todocard = ({title,description,id}:TodoProps) => {
-   
+   const dispatch = useAppDispatch()
     
     return (
         <div className="my-3">
@@ -18,7 +20,7 @@ const Todocard = ({title,description,id}:TodoProps) => {
                 <p>{title}</p>
                 <p>{description}</p>
                 <div className="space-x-3">
-                <Button size={"sm"}>Del</Button>
+                <Button size={"sm"}  onClick={()=>dispatch(removeTodo(id))}>Del</Button>
                 <Button size={"sm"}>Update</Button>
                 </div>
             </Card>

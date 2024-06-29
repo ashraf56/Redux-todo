@@ -22,11 +22,15 @@ import { PayloadAction, createSlice } from "@reduxjs/toolkit";
     addtodo : (state, action:PayloadAction<Ttodo>) => {  
      state.todos.push({ ...action.payload, isCompleted:false})
     },
+removeTodo: (state, action:PayloadAction<string>) =>{
+ 
+}
+
     }
 
 })
 
 
-export const {addtodo} = todoslice.actions
+export const {addtodo,removeTodo} = todoslice.actions
 
 export default todoslice.reducer
