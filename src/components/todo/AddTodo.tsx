@@ -20,12 +20,15 @@ const AddTodo = () => {
     const dispatch = useAppDispatch()
     const handleSUbmit = (e: FormEvent) => {
         e.preventDefault()
-
-        const tasDetail = {
+            const  randomid = Math.random().toString(32).substring(2,5)
+        
+            
+        const taskDetail = {
+            id:randomid,
             title: task,
             description: description
         }
-        dispatch(addtodo(tasDetail))
+       dispatch(addtodo(taskDetail))
 
 
 
