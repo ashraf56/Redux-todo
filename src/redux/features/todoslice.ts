@@ -23,7 +23,8 @@ import { PayloadAction, createSlice } from "@reduxjs/toolkit";
      state.todos.push({ ...action.payload, isCompleted:false})
     },
 removeTodo: (state, action:PayloadAction<string>) =>{
- 
+    state.todos = state.todos.filter(todo => todo.id !== action.payload);
+    
 }
 
     }

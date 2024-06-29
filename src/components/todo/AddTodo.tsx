@@ -3,7 +3,6 @@ import {
     Dialog,
     DialogContent,
     DialogDescription,
-    DialogFooter,
     DialogHeader,
     DialogTitle,
     DialogTrigger,
@@ -12,6 +11,7 @@ import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { addtodo } from "@/redux/features/todoslice";
 import { useAppDispatch } from "@/redux/hook";
+import { DialogClose } from "@radix-ui/react-dialog";
 import { FormEvent, useState } from "react";
 
 const AddTodo = () => {
@@ -37,7 +37,7 @@ const AddTodo = () => {
         <div>
 
             <Dialog>
-                <DialogTrigger asChild>
+                <DialogTrigger asChild  >
                     <Button variant="outline">Add TODO</Button>
                 </DialogTrigger>
                 <DialogContent className="sm:max-w-[425px]">
@@ -67,9 +67,9 @@ const AddTodo = () => {
                             />
                         </div>
 
-                        <DialogFooter>
+                        <DialogClose asChild>
                             <Button type="submit">Save changes</Button>
-                        </DialogFooter>
+                        </DialogClose>
                     </form>
                 </DialogContent>
             </Dialog>
