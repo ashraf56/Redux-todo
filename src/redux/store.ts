@@ -1,10 +1,13 @@
 import { configureStore } from "@reduxjs/toolkit"
 import todoslice from "./features/todoslice"
+import { baseApi } from "./api/api"
 
 
 
 export const store = configureStore({
     reducer:{
+        // rtk query  baseapi  connect 
+        [baseApi.reducerPath]:baseApi.reducer,
         todos: todoslice
     }
 }) 
