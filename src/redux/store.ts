@@ -5,12 +5,14 @@ import { baseApi } from "./api/api"
 
 
 export const store = configureStore({
-    reducer:{
+    reducer: {
         // rtk query  baseapi  connect 
-        [baseApi.reducerPath]:baseApi.reducer,
+        [baseApi.reducerPath]: baseApi.reducer,
         todos: todoslice
-    }
-}) 
+    },
+    middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(baseApi.middleware)
+
+})
 
 
 // Infer the `RootState` and `AppDispatch` types from the store itself
