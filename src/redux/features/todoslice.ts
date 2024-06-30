@@ -4,7 +4,8 @@ import { PayloadAction, createSlice } from "@reduxjs/toolkit";
     id:string
     title:string
     description:string
-    isCompleted?:boolean
+    isCompleted?:boolean,
+    priority:"high"|"low"|"medium"
 }
 
   type InitialState = { 
@@ -20,7 +21,7 @@ import { PayloadAction, createSlice } from "@reduxjs/toolkit";
     initialState,
     reducers:{
     addtodo : (state, action:PayloadAction<Ttodo>) => {  
-     state.todos.push({ ...action.payload, isCompleted:false})
+     state.todos.push({ ...action.payload})
     },
 removeTodo: (state, action:PayloadAction<string>) =>{
     state.todos = state.todos.filter(todo => todo.id !== action.payload);

@@ -9,28 +9,30 @@ import {
 } from "@/components/ui/dialog"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
-import { addtodo } from "@/redux/features/todoslice";
-import { useAppDispatch } from "@/redux/hook";
+import { useAddTodoMutation } from "@/redux/api/api";
 import { DialogClose } from "@radix-ui/react-dialog";
 import { FormEvent, useState } from "react";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "../ui/select";
 
 const AddTodo = () => {
     const [task, settask] = useState('')
     const [description, setdescription] = useState('')
-    const dispatch = useAppDispatch()
+    const [priority, setpriority] = useState('')
+    // const dispatch = useAppDispatch()
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    const [addtodo, object] = useAddTodoMutation()
     const handleSUbmit = (e: FormEvent) => {
         e.preventDefault()
-            const  randomid = Math.random().toString(32).substring(2,5)
-        
-            
+
+
         const taskDetail = {
-            id:randomid,
             title: task,
-            description: description
+            description: description,
+            priority: priority
         }
-       dispatch(addtodo(taskDetail))
+        //    dispatch(addtodo(taskDetail))
 
-
+        addtodo(taskDetail)
 
     }
     return (
@@ -65,6 +67,22 @@ const AddTodo = () => {
                                 onBlur={(e) => setdescription(e.target.value)}
                                 className="col-span-3"
                             />
+                        </div>
+                        <div className="grid grid-cols-4 items-center gap-4">
+                            <Label htmlFor="username" className="text-right">
+                                description
+                            </Label>
+                            <Select onValueChange={(value) => setpriority(value)}  >
+
+                                <SelectTrigger>
+                                    <SelectValue placeholder="Select a verified email to display" />
+                                </SelectTrigger>
+                                <SelectContent>
+                                    <SelectItem value="m@example.com">m@example.com</SelectItem>
+                                    <SelectItem value="m@google.com">m@google.com</SelectItem>
+                                    <SelectItem value="m@support.com">m@support.com</SelectItem>
+                                </SelectContent>
+                            </Select>
                         </div>
 
                         <DialogClose asChild>
