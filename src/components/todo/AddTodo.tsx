@@ -34,6 +34,9 @@ const AddTodo = () => {
 
         addtodo(taskDetail)
 
+        console.log(taskDetail);
+        
+
     }
     return (
         <div>
@@ -70,7 +73,7 @@ const AddTodo = () => {
                         </div>
                         <div className="grid grid-cols-4 items-center gap-4">
                             <Label htmlFor="username" className="text-right">
-                                description
+                                priority
                             </Label>
                             <Select onValueChange={(value) => setpriority(value)}  >
 
@@ -78,9 +81,9 @@ const AddTodo = () => {
                                     <SelectValue placeholder="Select a verified email to display" />
                                 </SelectTrigger>
                                 <SelectContent>
-                                    <SelectItem value="m@example.com">m@example.com</SelectItem>
-                                    <SelectItem value="m@google.com">m@google.com</SelectItem>
-                                    <SelectItem value="m@support.com">m@support.com</SelectItem>
+                                    <SelectItem value="high">high</SelectItem>
+                                    <SelectItem value="low">low</SelectItem>
+                                    <SelectItem value="medium">medium</SelectItem>
                                 </SelectContent>
                             </Select>
                         </div>
