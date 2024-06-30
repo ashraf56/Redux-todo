@@ -4,7 +4,7 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 export const baseApi = createApi({
     reducerPath:'baseapi',
      baseQuery:fetchBaseQuery({baseUrl:'http://localhost:5000'}),
-     tagTypes:['doto'],
+     tagTypes:['doto'],//26-4 video Redux Cache Behaviors
      endpoints:(builder)=>({
         getTodo:builder.query({
             query:()=>({
