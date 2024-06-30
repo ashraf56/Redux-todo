@@ -7,15 +7,19 @@ export const baseApi = createApi({
     tagTypes: ['doto'],//26-4 video Redux Cache Behaviors
     endpoints: (builder) => ({
         getTodo: builder.query({
-            query: () => {
-                
+            query: (priority) => {
+                const params = new URLSearchParams()
+                if (priority) {
+                    params.append('priority', priority)
+                }
                 return {
                     url: '/tasks',
-                    method: "GET"
+                    method: "GET",
+                    params: params
                 }
-                   
+
             },
- providesTags: ['doto'],
+            providesTags: ['doto'],
         }),
         addTodo: builder.mutation({
 
