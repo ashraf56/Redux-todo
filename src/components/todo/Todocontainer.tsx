@@ -1,9 +1,14 @@
 import { useAppSelector } from "@/redux/hook";
 import AddTodo from "./AddTodo";
 import Todocard from "./Todocard";
+// import { useGetTodoQuery } from "@/redux/api/api";
 
 const TodoContainer = () => {
     const todos = useAppSelector(state => state.todos.todos)
+
+// const {data:todos,isLoading,error} = useGetTodoQuery(undefined)
+
+
     return (
         <div>
             <div>
