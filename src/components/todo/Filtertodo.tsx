@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { Button } from '../ui/button';
 import {
   DropdownMenu,
@@ -8,8 +9,11 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from '../ui/dropdown-menu';
-
-const Filtertodo = ({priority,setPriority}) => {
+type Tpriority= {
+    priority:string;
+    setPriority:string|any | unknown
+}
+const Filtertodo = ({priority,setPriority}:Tpriority) => {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
