@@ -5,8 +5,7 @@ import Todocard from "./Todocard";
 const TodoContainer = () => {
     // const todos = useAppSelector(state => state.todos.todos)
 
- // eslint-disable-next-line @typescript-eslint/no-unused-vars
- const {data,isLoading,error} = useGetTodoQuery(undefined)
+ const {data,isLoading} = useGetTodoQuery(undefined)
 
  if (isLoading) {
     return <p>Loading.....</p>
@@ -22,7 +21,7 @@ const TodoContainer = () => {
           {
             // eslint-disable-next-line @typescript-eslint/no-explicit-any
             data?.data?.map((item:any)=>( 
-                <Todocard {...item}></Todocard>
+                <Todocard {...item} key={item._id}></Todocard>
             ))
           }
         </div>
