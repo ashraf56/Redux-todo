@@ -8,7 +8,6 @@ const TodoContainer = () => {
     // const todos = useAppSelector(state => state.todos.todos)
  const [priority,setPriority] = useState('')
  const {data,isLoading} = useGetTodoQuery(priority)
-console.log(priority);
 
  if (isLoading) {
     return <p>Loading.....</p>

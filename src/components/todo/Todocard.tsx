@@ -1,7 +1,8 @@
-import { useAppDispatch } from "@/redux/hook";
 import { Button } from "../ui/button";
 import { Card } from "../ui/card";
 import { removeTodo, togggleCompleted } from "@/redux/features/todoslice";
+import { useUpdatetogleTodoMutation } from "@/redux/api/api";
+import { useAppDispatch } from "@/redux/hook";
 
 type TodoProps={
     _id:string
@@ -13,9 +14,18 @@ type TodoProps={
 }
 const Todocard = ({title,description,_id,isCompleted,priority}:TodoProps) => {
    const dispatch = useAppDispatch()
+const [updatetogleTodo]=useUpdatetogleTodoMutation()
     const toogleCheck =()=>{
+        const info={
+            id:_id,
+            data:{
+                title,description,
+                isCompleted:!isCompleted
+                ,priority  
+            }
+        }
       dispatch(togggleCompleted(_id))
-        
+        updatetogleTodo(info)
     }
     return (
         <div className="my-3">
