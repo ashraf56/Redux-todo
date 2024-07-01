@@ -1,6 +1,6 @@
 import { Button } from "../ui/button";
 import { Card } from "../ui/card";
-import { removeTodo, togggleCompleted } from "@/redux/features/todoslice";
+import { removeTodo } from "@/redux/features/todoslice";
 import { useUpdatetogleTodoMutation } from "@/redux/api/api";
 import { useAppDispatch } from "@/redux/hook";
 
@@ -24,13 +24,15 @@ const [updatetogleTodo]=useUpdatetogleTodoMutation()
                 ,priority  
             }
         }
-      dispatch(togggleCompleted(_id))
+      
+      console.log(info);
+      
         updatetogleTodo(info)
     }
     return (
         <div className="my-3">
             <Card className=" max-w-7xl h-14 flex justify-between items-center mx-auto px-10">
-                <input type="checkbox" value="" onChange={toogleCheck} />
+                <input type="checkbox"  onChange={toogleCheck} />
                 <div className="w-5">
                     {isCompleted  === true ? 
                 <p >Done</p>   : <p>pending...</p> 

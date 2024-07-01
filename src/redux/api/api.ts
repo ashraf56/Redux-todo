@@ -36,10 +36,10 @@ export const baseApi = createApi({
         updatetogleTodo: builder.mutation({
       
 
-            query: (data) => ({
-                url: '/task',
-                method: "POST",
-                body: data
+            query: (info) => ({
+                url: `/task/${info.id}`,
+                method: "PUT",
+                body: info.data
 
             }),
             invalidatesTags: ['doto']
