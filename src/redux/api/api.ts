@@ -32,6 +32,18 @@ export const baseApi = createApi({
             }),
             invalidatesTags: ['doto']
 
+        }),
+        updatetogleTodo: builder.mutation({
+      
+
+            query: (data) => ({
+                url: '/task',
+                method: "POST",
+                body: data
+
+            }),
+            invalidatesTags: ['doto']
+
         })
     })
 
@@ -39,4 +51,4 @@ export const baseApi = createApi({
 
 
 
-export const { useGetTodoQuery, useAddTodoMutation } = baseApi
+export const { useGetTodoQuery, useAddTodoMutation,useUpdatetogleTodoMutation } = baseApi
